@@ -10,5 +10,5 @@ Very simple configuration for my Niri + Noctalia workspace
 
 ----
 
-<img src="showcase_niri.png"/>
+<img src="niri_showcase.png"/>
 
