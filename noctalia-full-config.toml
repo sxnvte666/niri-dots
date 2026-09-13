@@ -34,7 +34,6 @@ order = [ "default" ]
     enabled = true
     end = [
         "media",
-        "tray",
         "notifications",
         "clipboard",
         "network",
@@ -44,6 +43,7 @@ order = [ "default" ]
         "battery",
         "nix-monitor",
         "control-center",
+        "tray",
         "session"
     ]
     font_scale = 1.0
@@ -51,15 +51,15 @@ order = [ "default" ]
     hover_highlight = true
     layer = "top"
     margin_edge = 0
-    margin_ends = 100
+    margin_ends = 0
     margin_opposite_edge = 0
     padding = 14
     panel_overlap = 1
     position = "left"
     radius = 12
-    radius_bottom_left = 12
+    radius_bottom_left = 0
     radius_bottom_right = 12
-    radius_top_left = 12
+    radius_top_left = 0
     radius_top_right = 12
     reserve_space = true
     scale = 1.0
@@ -70,7 +70,8 @@ order = [ "default" ]
     thickness = 34
     widget_spacing = 6
 
-        [bar.default.dead_zone]
+        [bar.default.dead_zone.actions]
+        middle = "panel-toggle launcher"
 
 [battery]
 warning_threshold = 10
@@ -112,7 +113,7 @@ width = 700
     type = "mic_mute"
 
 [desktop_widgets]
-enabled = true
+enabled = false
 schema_version = 2
 
     [desktop_widgets.grid]
@@ -338,7 +339,7 @@ show_app_name = true
 [osd]
 background_opacity = 0.97000002861022949
 border = true
-enabled = false
+enabled = true
 monitors = []
 offset_x = 20
 offset_y = 8
@@ -348,28 +349,32 @@ position_vertical = "top_center"
 scale = 1.0
 
     [osd.kinds]
-    bluetooth = true
-    brightness = true
-    caffeine = true
-    dnd = true
-    keyboard_backlight = true
-    keyboard_layout = true
-    lock_keys = true
-    media = true
-    nightlight = true
-    power_profile = true
+    bluetooth = false
+    brightness = false
+    caffeine = false
+    dnd = false
+    keyboard_backlight = false
+    keyboard_layout = false
+    lock_keys = false
+    media = false
+    nightlight = false
+    power_profile = false
     privacy = true
     volume = true
     volume_input = true
-    volume_output = true
-    wifi = true
+    volume_output = false
+    wifi = false
+
+[plugin_settings."alexander/game-launcher"]
+heroic_enabled = false
+lutris_enabled = false
 
 [plugin_settings."tordex/nvtop"]
 panel_placement = "floating"
 
 [plugins]
 auto_update = "all"
-enabled = [ "avivbintangaringga/nix-monitor", "noctalia/notes", "radimous/prismlauncher-instances", "nightwatch75/todo" ]
+enabled = [ "noctalia/notes", "nightwatch75/todo", "nightwatch75/file-search" ]
 
     [[plugins.source]]
     enabled = true
@@ -713,10 +718,6 @@ type = "spacer"
 [widget.temp]
 stat = "cpu_temp"
 type = "sysmon"
-
-[widget.tray]
-enabled = false
-type = "tray"
 
 [widget.wallpaper]
 enabled = false
